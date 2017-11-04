@@ -41,7 +41,7 @@
 			}
         </style>
     </head>
-    <body>
+    <body onload="appStart();">
         <script src="three.js"></script>
         <script src="pointer.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -64,5 +64,28 @@
 		<!-- External modules: Demo source -->
 		<script type="text/javascript" src="lightsaber/lightsaber.js"></script>
         <script src="main.js"></script>
+	<script>
+		function appStart() {
+				try {
+					// Framework setup.
+					if (!jedi.WebApp.init(LightSaberDemo.onUpdate, LightSaberDemo.onRender)) {
+						jedi.fatalError("Fatal error: Failed to initialize the WebApp!");
+					}
+					// Delay displaying the canvas and loading animation
+					// until its runtime size can be properly defined.
+					refreshCanvas();
+					if (!jedi.Renderer.init("webgl_canvas")) {
+						jedi.fatalError("Fatal error: Failed to initialize the Renderer! <br />" + webglHelpMessage);
+					}
+					// Once all resources are done loading, control will be passed to LightSaberDemo.
+                    
+					jedi.ResourceManager.init("lightsaber/preload_manifest.json",
+						LightSaberDemo.onResourcesLoaded);
+				} catch (ignore) {
+					jedi.logWarning("Unhandled exception caught on 'appStart()'!");
+					jedi.WebApp.renderErrorPage("demos/lightsaber/error_dump.html", "canvas_overlay");
+				}
+			}
+	</script>
     </body>
 </html>
