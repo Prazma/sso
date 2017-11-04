@@ -97,7 +97,7 @@
 		<script type="text/javascript" src="jedi/polyboard.js"></script>
 
 		<!-- External modules: Demo source -->
-		<script type="text/javascript" src="demos/lightsaber/lightsaber.js"></script>
+		<script type="text/javascript" src="lightsaber/lightsaber.js"></script>
 
 		<!-- Application entry points: -->
 		<script type="text/javascript">
@@ -227,7 +227,7 @@
 
 					// Once all resources are done loading, control will be passed to LightSaberDemo.
                     
-					jedi.ResourceManager.init("demos/lightsaber/preload_manifest.json",
+					jedi.ResourceManager.init("lightsaber/preload_manifest.json",
 						LightSaberDemo.onResourcesLoaded);
 
 				} catch (ignore) {
@@ -253,7 +253,7 @@
 		<div id="page_body">
 			<canvas id="webgl_canvas" width="640" height="480"></canvas>
 			<div id="canvas_overlay">
-				<img src="demos/lightsaber/textures/loading.gif" id="loading_animation">
+				<img src="lightsaber/textures/loading.gif" id="loading_animation">
 			</div>
 		</div>
 
@@ -265,10 +265,10 @@
 		</div>
 
 		<!-- Sound effects: -->
-		<audio id="snd_saber_on"   src="demos/lightsaber/sounds/saber_on.mp3"   preload="auto"></audio>
-		<audio id="snd_saber_off"  src="demos/lightsaber/sounds/saber_off.mp3"  preload="auto"></audio>
-		<audio id="snd_saber_move" src="demos/lightsaber/sounds/saber_move.mp3" preload="auto"></audio>
-		<audio id="snd_saber_loop" src="demos/lightsaber/sounds/saber_loop.mp3" preload="auto" loop="loop"></audio>
+		<audio id="snd_saber_on"   src="lightsaber/sounds/saber_on.mp3"   preload="auto"></audio>
+		<audio id="snd_saber_off"  src="lightsaber/sounds/saber_off.mp3"  preload="auto"></audio>
+		<audio id="snd_saber_move" src="lightsaber/sounds/saber_move.mp3" preload="auto"></audio>
+		<audio id="snd_saber_loop" src="lightsaber/sounds/saber_loop.mp3" preload="auto" loop="loop"></audio>
 
 		<!-- jQuery UI panel: -->
 		<div id="controls">
