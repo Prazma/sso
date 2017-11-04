@@ -1,0 +1,1 @@
+Just search "WebGL Lightsaber" and click on a game dev journal. You will find the link to the source code on bitbucket. They are not copyrighted. (They are LICENSED). More information on [BitBucket](https://bitbucket.com)
