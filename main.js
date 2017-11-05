@@ -20,7 +20,7 @@
                 camera.position.z = 1000;
 				scene = new THREE.Scene();
 				scene.background = new THREE.Color( 0xffffff );
-				scene.fog = new THREE.Fog( 0x000000, 0, 2000 );
+				scene.fog = new THREE.Fog( 0xF0FBFF, 0, 2000 );
                 var saberGeo = new THREE.BoxGeometry( 0.6, 10, 0.6 );
                 var saberMat = new THREE.MeshBasicMaterial( { color: 0xffffff } );
                 saber = new THREE.Mesh( saberGeo, saberMat );
