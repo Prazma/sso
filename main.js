@@ -94,12 +94,13 @@
 				geometry = new THREE.ConeGeometry( 0.12, 2.03 );
 				meshL3 = new THREE.Mesh( geometry, threeLayer );
 				scene.add( meshL3 );
-			}
-			function animate() {
+				
 				mesh.position.y = 10;
 				meshL1.position.y = 10;
 				meshL2.position.y = 10;
 				meshL3.position.y = 10;
+			}
+			function animate() {
 				renderer.render( scene, camera );
 				requestAnimationFrame( animate );
 			}
