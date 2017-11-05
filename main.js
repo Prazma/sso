@@ -1,4 +1,6 @@
-            var camera, scene, renderer, controls, floor, saber;
+        		var camera, scene, renderer, controls, floor, saber;
+			var centerLayer, oneLayer, twoLayer, threeLayer;
+			var geometry, mesh, meshL1, meshL2, meshL3;
 			var objects = [];
 			var raycaster;
 			var blocker = document.getElementById( 'blocker' );
@@ -17,7 +19,7 @@
 			var direction = new THREE.Vector3();
 			function init() {
 				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 100000 );
-                camera.position.z = 1000;
+				camera.position.z = 3;
 				scene = new THREE.Scene();
 				scene.background = new THREE.Color( 0xffffff );
 				scene.fog = new THREE.Fog( 0xF0FBFF, 0, 2000 );
@@ -69,12 +71,30 @@
 						uniforms : skyboxShader.uniforms, depthWrite : false, side : THREE.BackSide
 					})
 				);
+		    		geometry = new THREE.ConeGeometry( 0.05, 2 );
+				centerLayer = new THREE.MeshBasicMaterial( { color: 0xffffff } );
+				oneLayer = new THREE.MeshBasicMaterial( { color: 0x03A9F4, transparent: true, opacity: 0.3 } );
+				twoLayer = new THREE.MeshBasicMaterial( { color: 0x03A9F4, transparent: true, opacity: 0.2 } );
+				threeLayer = new THREE.MeshBasicMaterial( { color: 0xffffff, transparent: true, opacity: 0.18 } );
+
+				mesh = new THREE.Mesh( geometry, centerLayer );
+				scene.add( mesh );
+				
+				geometry = new THREE.ConeGeometry( 0.08, 2.01 );
+				meshL1 = new THREE.Mesh( geometry, oneLayer );
+				scene.add( meshL1 );
+
+				
+				geometry = new THREE.ConeGeometry( 0.1, 2.02 );
+				meshL2 = new THREE.Mesh( geometry, twoLayer );
+				scene.add( meshL2 );
+				
+				
+				geometry = new THREE.ConeGeometry( 0.12, 2.03 );
+				meshL3 = new THREE.Mesh( geometry, threeLayer );
+				scene.add( meshL3 );
 			}
 			function animate() {
-                camera.position.z -= 1;
-                camera.position.y = 10;
-                saber.position.y = 2;
-                saber.position.z -= 1;
 				renderer.render( scene, camera );
 				requestAnimationFrame( animate );
 			}
