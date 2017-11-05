@@ -20,6 +20,7 @@
 			function init() {
 				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 100000 );
 				camera.position.z = 3;
+				camera.position.y = 10;
 				scene = new THREE.Scene();
 				scene.background = new THREE.Color( 0xffffff );
 				scene.fog = new THREE.Fog( 0xF0FBFF, 0, 2000 );
@@ -95,6 +96,10 @@
 				scene.add( meshL3 );
 			}
 			function animate() {
+				mesh.position.y = 10;
+				meshL1.position.y = 10;
+				meshL2.position.y = 10;
+				meshL3.position.y = 10;
 				renderer.render( scene, camera );
 				requestAnimationFrame( animate );
 			}
