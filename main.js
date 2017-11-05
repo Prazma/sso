@@ -31,7 +31,7 @@
 				raycaster = new THREE.Raycaster( new THREE.Vector3(), new THREE.Vector3( 0, - 1, 0 ), 0, 10 );
 				// floor
 				var floorGeometry = new THREE.PlaneGeometry( 2000, 2000, 100, 100 );
-				var floorMaterial = new THREE.MeshBasicMaterial( { color: 0x252525 } );
+				var floorMaterial = new THREE.MeshBasicMaterial( { color: 0x8CD144 } );
 				floor = new THREE.Mesh( floorGeometry, floorMaterial );
 				scene.add( floor );
                 floor.rotation.x = Math.PI / -2;
