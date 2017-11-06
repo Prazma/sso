@@ -13,6 +13,7 @@
 				margin: 0;
 				overflow: hidden;
 				font-family: arial;
+                cursor: none;
 			}
 			#blocker {
 				position: absolute;
@@ -41,51 +42,9 @@
 			}
         </style>
     </head>
-    <body onload="appStart();">
+    <body onmousemove="saberOrigin(event)">
         <script src="three.js"></script>
         <script src="pointer.js"></script>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js"></script>
-		<script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-		<script type="text/javascript" src="thirdparty/glmatrix/dist/gl-matrix-min.js"></script>
-
-		<!-- External modules: JEDI framework -->
-		<script type="text/javascript" src="jedi/jedi.js"></script>
-		<script type="text/javascript" src="jedi/web_app.js"></script>
-		<script type="text/javascript" src="jedi/renderer.js"></script>
-		<script type="text/javascript" src="jedi/shader.js"></script>
-		<script type="text/javascript" src="jedi/texture.js"></script>
-		<script type="text/javascript" src="jedi/material.js"></script>
-		<script type="text/javascript" src="jedi/model3d.js"></script>
-		<script type="text/javascript" src="jedi/framebuffer.js"></script>
-		<script type="text/javascript" src="jedi/resource_manager.js"></script>
-		<script type="text/javascript" src="jedi/glow_effect.js"></script>
-		<script type="text/javascript" src="jedi/polyboard.js"></script>
-
-		<!-- External modules: Demo source -->
-		<script type="text/javascript" src="lightsaber/lightsaber.js"></script>
         <script src="main.js"></script>
-	<script>
-		function appStart() {
-				try {
-					// Framework setup.
-					if (!jedi.WebApp.init(LightSaberDemo.onUpdate, LightSaberDemo.onRender)) {
-						jedi.fatalError("Fatal error: Failed to initialize the WebApp!");
-					}
-					// Delay displaying the canvas and loading animation
-					// until its runtime size can be properly defined.
-					refreshCanvas();
-					if (!jedi.Renderer.init("webgl_canvas")) {
-						jedi.fatalError("Fatal error: Failed to initialize the Renderer! <br />" + webglHelpMessage);
-					}
-					// Once all resources are done loading, control will be passed to LightSaberDemo.
-                    
-					jedi.ResourceManager.init("lightsaber/preload_manifest.json",
-						LightSaberDemo.onResourcesLoaded);
-				} catch (ignore) {
-					jedi.logWarning("Unhandled exception caught on 'appStart()'!");
-					jedi.WebApp.renderErrorPage("demos/lightsaber/error_dump.html", "canvas_overlay");
-				}
-			}
-	</script>
     </body>
 </html>
